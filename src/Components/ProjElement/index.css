@@ -1,0 +1,31 @@
+.display {
+    width: 100%;
+    margin: 4px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.display:hover {
+    box-shadow: 0px 10px 13px -7px #000000, 1px 1px 24px 4px rgba(120, 120, 120, 0.14);
+    transition: 0.3s;
+}
+
+.heading {
+    text-align: center;
+    font-weight: 200;
+    font-size: 30px;
+    padding: 20px;
+    padding-bottom: 0;
+    text-shadow: 3px 4px 16px #000000;
+    position: relative;
+    top: 7.5%;
+}
+
+.imageHolder {
+    visibility: hidden;
+    width: 100%;
+    border-style: none;
+    vertical-align: middle;
+}

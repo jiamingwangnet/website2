@@ -1,0 +1,54 @@
+.popup {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    z-index: 3;
+    width: 95vw;
+    height: 80vh;
+    background-color: rgb(19, 19, 19);
+    padding: 10px;
+}
+
+.closeBtn {
+    color: rgb(220, 220, 220);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 25px;
+    background: none;
+    border: none;
+}
+
+.closeBtn:hover {
+    color: rgb(255, 255, 255);
+}
+
+.closeBtn:active {
+    color: rgb(181, 181, 181);
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.534);
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.play-display {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.356); 
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}

@@ -1,0 +1,7 @@
+.message {
+    padding: 3px;
+    margin: 5px;
+    border-radius: 10px;
+    line-break: strict;
+    overflow-wrap: break-word;
+}

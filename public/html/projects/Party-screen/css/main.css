@@ -1,0 +1,144 @@
+#background {
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.centerDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.center {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+}
+
+.titleBig {
+    margin: 0;
+    font-size: calc(4vw + 4vh);
+}
+
+.startBtn {
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+    font-weight: 200;
+    font-style: italic;
+    display: block;
+    font-size: large;
+    transition: 0.1s;
+}
+
+.startBtn:hover {
+    /*make text glow*/
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0, 0);
+    text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 20px #00c4e6, 0 0 30px #00c4e6, 0 0 40px #00c4e6, 0 0 50px #00c4e6;
+    transition: 0.1s;
+}
+
+/*make startBtn darker when clicked*/
+.startBtn:active {
+    background-color: rgb(0, 0, 0, 0);
+    color: #9e9e9e;
+    text-shadow: 0 0 10px #9e9e9e, 0 0 10px #9e9e9e, 0 0 20px #9e9e9e, 0 0 30px #9e9e9e, 0 0 40px #9e9e9e, 0 0 50px #9e9e9e;
+    transition: 0.1s;
+}
+
+.offscreen {
+    display: none;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #272727f3;
+    width: 60%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #424242;
+    z-index: 2;
+    display: none;
+}
+
+input {
+    background-color: rgba(24, 24, 24, 0.808);
+    border: none;
+    margin: 3px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+button {
+    background-color: rgba(24, 24, 24, 0.808);
+    border: none;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.1s;
+}
+
+button:hover {
+    background-color: rgba(100, 100, 100, 0.808);
+    transition: 0.1s;
+}
+
+* {
+    color: white;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.optionsContainer
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.closeSettings
+{
+    float: right;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.closeSettings:hover
+{
+    color: #8a8a8a;
+    transition: 0.15s;
+}
+
+.optionsContainer input
+{
+    flex-grow: calc(3 / 4);
+}
+
+.optionsContainer span
+{
+    width: 5%;
+}
+
+.github-icon {
+    position: fixed;
+    color:white;
+    font-size: 30px;
+    bottom: 10px;
+    left: calc(100% - 35px);
+}
+
+/*make page be full width*/
+html, body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-y: hidden;
+}

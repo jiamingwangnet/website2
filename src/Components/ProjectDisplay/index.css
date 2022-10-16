@@ -1,0 +1,15 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.column {
+    flex: 25%;
+}
+
+@media only screen and (max-width: 800px) {
+    .column {
+        flex: 100%;
+    }
+}

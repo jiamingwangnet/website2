@@ -1,0 +1,41 @@
+.title {
+    padding: 0;
+    margin: 0;
+    font-size: 400%;
+    position: relative;
+    text-align: center;
+    top: 40%;
+    transform: translate(0, -40%);
+    font-family: 'Syncopate', sans-serif;
+    font-weight: bold;
+    line-height: 55px;
+    letter-spacing: 10px;
+    margin: 0;
+}
+
+.subtitle {
+    font-family: 'Syncopate', sans-serif;
+    position: relative;
+    font-size: x-large;
+    letter-spacing: 5px;
+    font-weight: 500;
+    margin-top: 0px;
+}
+
+
+@media only screen and (max-width: 750px) {
+    .title {
+        padding: 0;
+        margin: 0;
+        font-size: 300%;
+        position: relative;
+        text-align: center;
+        top: 40%;
+        transform: translate(0, -40%);
+        font-family: 'Syncopate', sans-serif;
+        font-weight: bold;
+        line-height: 55px;
+        letter-spacing: 10px;
+        margin: 0;
+    }
+}
