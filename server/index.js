@@ -27,8 +27,6 @@ function getType(name) {
 }
 
 http.createServer(function (req, res) {
-    console.log(req.url);
-
     const url = req.url == '/' ? "/index.html" : req.url;
     
     res.writeHead(200, { 'Content-Type': getType(url) });
@@ -46,3 +44,4 @@ http.createServer(function (req, res) {
         }
     })
 }).listen(connectionSettings.port, connectionSettings.address);
+console.log("Server on " + connectionSettings.address + ":" +connectionSettings.port);
