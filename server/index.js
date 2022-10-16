@@ -10,7 +10,7 @@ const connectionSettings = {
     address: network
 }
 
-const buildLoc = "../build";
+const buildLoc = "./build";
 const index = buildLoc + "/index.html";
 
 function getType(name) {
@@ -33,6 +33,7 @@ http.createServer(function (req, res) {
     fs.readFile(buildLoc + url, function (err, data) {
         if(err) {
             fs.readFile(buildLoc + "/index.html", function (err, data) {
+                console.log(err)
                 res.write(data);
                 return res.end();
             })
