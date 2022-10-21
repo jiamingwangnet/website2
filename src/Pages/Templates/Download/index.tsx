@@ -15,6 +15,7 @@ interface DownloadsPageProps {
     headerImg: string;
     heading: string;
     desc: string;
+    dark?:boolean;
     downloads: DownloadObj[];
 }
 
@@ -35,7 +36,7 @@ class DownloadsPage extends React.Component<
     }
 
     render() {
-        const { title, headerImg, heading, desc, downloads } = this.props;
+        const { title, headerImg, heading, desc, downloads, dark } = this.props;
 
         return (
             <>
@@ -43,7 +44,7 @@ class DownloadsPage extends React.Component<
                     <title>{title} - Jiaming Wang</title>
                 </Hemlet>
                 <ImageHeader src={headerImg} dark={0}>
-                    <Heading>{heading}</Heading>
+                    <Heading style={{color: dark ? "#000" : "#fff"}}>{heading}</Heading>
                 </ImageHeader>
                 <Desc title={heading} center>{desc}</Desc>
     

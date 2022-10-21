@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNGSIM</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="content">
+        <div class="num-display">
+            <div>
+                <div class="last-num">
+                    <span id="number"></span>
+                    <span id="chance-avg"></span>
+                    <span id="chance"></span>
+                </div>
+                <div class="num-list">
+                    <div><span>?</span><span class="avg">?%</span></div>
+                    <div><span>?</span><span class="avg">?%</span></div>
+                    <div><span>?</span><span class="avg">?%</span></div>
+                    <div><span>?</span><span class="avg">?%</span></div>
+                    <div><span>?</span><span class="avg">?%</span></div>
+                    <div><span>?</span><span class="avg">?%</span></div>
+                </div>
+                <div class="stats">
+                    <div id="highest">
+                        <p id="highest-num">0</p>
+                        <p id="highest-chance">0.0%</p>
+                    </div>
+                    <p id="total">0</p>
+                </div>
+                <br>
+                <div class="probability-search">
+                    Search:
+                    <input type="number" id="probability-search" placeholder="n" min="1">
+                    <br>
+                    <code>theoretical probability = 2^(-n)</code>
+                    <div id="probability-search-results">
+                        <h2 id="search-title"></h2>
+                        <p id="invalid" style="display:none;">Input must be a positive integer that is not 0</p>
+                        <p id="theoretical" title="theoretical probability from calculations"></p>
+                        <p id="experimental" title="experimental probability taken from the list of generated numbers"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -9,6 +9,7 @@ import ProjElement from "../../Components/ProjElement";
 
 import monkebeanbg from "../../assets/images/project_thumbnails/monkebean.png";
 import partyscreenbg from "../../assets/images/project_thumbnails/partyscreen.png";
+import rngsimbg from "../../assets/images/project_thumbnails/rngsim.png";
 
 interface ProjectsPageProps {}
 
@@ -46,6 +47,21 @@ class ProjectsPage extends React.Component<
                 </Desc>
 
                 <ProjectDisplay columns={3} seperator>
+                    <ProjElement
+                        image={rngsimbg}
+                        heading="RNGSIM"
+                        tags={["Finished", "Online"]}
+                        popupTitle="RNGSIM"
+                        popupBody={
+                            <>
+                                <p>
+                                    Watch random numbers being generated.
+                                </p>
+                            </>
+                        }
+                        popupBackground={rngsimbg}
+                        link="/projects/rngsim"
+                    />
                     <ProjElement
                         image={monkebeanbg}
                         heading="Monke Bean"

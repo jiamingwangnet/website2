@@ -9,6 +9,7 @@ import cubeShooterBg from "./assets/images/game_thumbnails/shooter.png";
 import dungeonManBg from "./assets/images/game_thumbnails/dungeon_man.png"
 import cubeSliderbg from "./assets/images/game_thumbnails/slider.png";
 import jumpbg from "./assets/images/game_thumbnails/jump.png";
+import lightsOutbg from "./assets/images/game_thumbnails/lightsOut.png";
 
 function App() {
     return (
@@ -133,6 +134,21 @@ function App() {
                             />
                         }
                     />
+                    <Route
+                        path="/games/lightsout"
+                        element={
+                            <DownloadsPage
+                                title="Lights Out"
+                                heading="Lights Out"
+                                desc="A platformer where a light switch changes worlds."
+                                headerImg={lightsOutbg}
+                                downloads={[
+                                    {name: "Windows x64", link:"/downloads/LightsOut.zip"}
+                                ]}
+                                dark
+                            />
+                        }
+                    />
 
                     {/* projects */}
                     <Route
@@ -150,6 +166,15 @@ function App() {
                             <HTMLLoader
                                 title="Party Screen"
                                 src="/html/projects/Party-screen/screen.html"
+                            />
+                        }
+                    />
+                    <Route
+                        path="/projects/rngsim"
+                        element={
+                            <HTMLLoader
+                                title="RNGSIM"
+                                src="/html/projects/RNGSIM/index.html"
                             />
                         }
                     />

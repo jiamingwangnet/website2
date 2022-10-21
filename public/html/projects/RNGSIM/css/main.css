@@ -1,0 +1,154 @@
+.content {
+    background-color: rgb(24, 24, 24);
+    width: 90vw;
+    height: 90vh;
+}
+
+html, body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.last-num {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(38, 38, 38);
+    border-radius: 3px;
+    margin: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    display:flex;
+    align-items:center;
+    flex-direction: column;
+    justify-content:center;
+}
+
+#number {
+    font-size: xx-large;
+}
+
+#chance-avg, #chance {
+    font-size: x-small;
+}
+
+#chance-avg::before {
+    content: "theoretical: ";
+}
+
+#chance::before {
+    content: "actual: ";
+}
+
+.num-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-left:auto;margin-right:auto;
+    width: 60vw;
+}
+
+.num-list div {
+    background-color: rgb(38, 38, 38);
+    margin: 5px;
+    padding: 5px;
+    flex-grow: 1;
+    text-align: center;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.num-list div span {
+    font-size: x-large;
+}
+
+.num-list div .avg {
+    font-size: x-small;
+}
+
+.num-display {
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+}
+
+.stats {
+    text-align: center;
+    width: 20vw;
+    margin-left:auto;margin-right:auto;
+    margin-top: 10px;
+}
+
+.stats #highest::before {
+    content: "best: ";
+}
+
+.stats #highest {
+    background-color: rgb(35, 35, 35);
+    font-size: small;
+    width: 40%;
+    border-radius: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 5px;
+}
+
+.stats #highest #highest-num {
+    font-size: large;
+}
+
+.stats #highest #highest-chance {
+    font-size: x-small;
+}
+
+.stats #highest * {
+    margin: 1px;
+}
+
+.stats #total {
+    font-size: x-small;
+}
+
+.stats #total::before {
+    content: "total: ";
+}
+
+.probability-search {
+    margin-left:auto;
+    margin-right:auto;
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+}
+
+input {
+    background-color: rgb(42, 42, 42);
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}

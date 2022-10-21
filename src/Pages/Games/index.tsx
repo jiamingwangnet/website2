@@ -16,6 +16,7 @@ import matchFruitsbg from "../../assets/images/game_thumbnails/matchTheFruits.pn
 import bearEscapebg from "../../assets/images/game_thumbnails/bearEscape.png";
 import cubeSliderbg from "../../assets/images/game_thumbnails/slider.png";
 import jumpbg from "../../assets/images/game_thumbnails/jump.png";
+import lightsOutbg from "../../assets/images/game_thumbnails/lightsOut.png";
 
 interface GamesPageProps { }
 
@@ -50,6 +51,25 @@ class GamesPage extends React.Component<GamesPageProps, GamesPageState> {
                 </Desc>
 
                 <ProjectDisplay columns={3} seperator>
+                    <ProjElement
+                        image={lightsOutbg}
+                        heading="Lights Out"
+                        tags={["Finished", "Offline"]}
+                        popupTitle="Lights Out"
+                        popupBody={
+                            <>
+                                <p>A game I made for a competition.</p>
+                                <h2>How to play</h2>
+                                <p>
+                                    Collect the keys to go finish the level.
+                                    <br/>
+                                    Flip the switch to switch worlds.
+                                </p>
+                            </>
+                        }
+                        popupBackground={lightsOutbg}
+                        link="/games/lightsout"
+                    />
                     <ProjElement
                         image={cubeShooterbg}
                         heading="Cube Shooter"
