@@ -143,7 +143,8 @@ function App() {
                                 desc="A platformer where a light switch changes worlds."
                                 headerImg={lightsOutbg}
                                 downloads={[
-                                    {name: "Windows x64", link:"/downloads/LightsOut.zip"}
+                                    {name: "Windows x64", link:"/downloads/LightsOut.zip"},
+                                    {name: "MacOS", link:"/downloads/LightsOut_Apple.zip"},
                                 ]}
                                 dark
                             />
