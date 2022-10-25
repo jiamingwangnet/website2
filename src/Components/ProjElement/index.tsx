@@ -33,7 +33,7 @@ class ProjElement extends React.Component<ProjElementProps, ProjElementState> {
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url(${this.props.image})`,
                     }}
                 >
-                    <div /*style={{backdropFilter: "blur(5px)"}}*/ onClick={this.openPopup}>
+                    <button className="clearBtnStyle" onClick={this.openPopup} tabIndex={0} role="button">
                         <img
                             src={this.props.image}
                             className="imageHolder"
@@ -47,7 +47,7 @@ class ProjElement extends React.Component<ProjElementProps, ProjElementState> {
                                 ))}
                             </div>
                         </div>
-                    </div>
+                    </button>
                 </div>
                 {/* popup */}
                 <ProjPopup
