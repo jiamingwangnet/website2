@@ -10,6 +10,7 @@ import ProjElement from "../../Components/ProjElement";
 import monkebeanbg from "../../assets/images/project_thumbnails/monkebean.png";
 import partyscreenbg from "../../assets/images/project_thumbnails/partyscreen.png";
 import rngsimbg from "../../assets/images/project_thumbnails/rngsim.png";
+import numberclassifier from "../../assets/images/project_thumbnails/numberclassifier.png";
 
 interface ProjectsPageProps {}
 
@@ -47,6 +48,31 @@ class ProjectsPage extends React.Component<
                 </Desc>
 
                 <ProjectDisplay columns={3} seperator>
+                    <ProjElement
+                        image={numberclassifier}
+                        heading="Number Classifier"
+                        tags={["Finished"]}
+                        popupTitle="Number Classifier"
+                        popupBody={
+                            <>
+                                <p>
+                                    Number Classifier is a console application I made that can classify handwritten numbers saved as 
+                                    a 28x28 pixel bitmap file.
+                                </p>
+                                <h2>How to use</h2>
+                                <p>
+                                    Download the executable or use the GitHub link to build it yourself.
+                                    <br />
+                                    Make sure the MNIST data files are in the same directory of the executable.
+                                    You can download the MNIST data <a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noreferrer noopener nofollow">here</a>.
+                                    <br/>
+                                    When asked for as save file, put '!' if you don't have one.
+                                </p>
+                            </>
+                        }
+                        popupBackground={numberclassifier}
+                        link="/projects/numberclassifier"
+                    />
                     <ProjElement
                         image={rngsimbg}
                         heading="RNGSIM"

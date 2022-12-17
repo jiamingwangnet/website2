@@ -10,6 +10,7 @@ import dungeonManBg from "./assets/images/game_thumbnails/dungeon_man.png"
 import cubeSliderbg from "./assets/images/game_thumbnails/slider.png";
 import jumpbg from "./assets/images/game_thumbnails/jump.png";
 import lightsOutbg from "./assets/images/game_thumbnails/lightsOut.png";
+import numberclassifier from "./assets/images/project_thumbnails/numberclassifier.png";
 
 function App() {
     return (
@@ -176,6 +177,44 @@ function App() {
                             <HTMLLoader
                                 title="RNGSIM"
                                 src="/html/projects/RNGSIM/index.html"
+                            />
+                        }
+                    />
+                    <Route
+                        path="/projects/numberclassifier"
+                        element={
+                            <DownloadsPage
+                                title="Number Classifier"
+                                heading="Number Classifier"
+                                desc={
+                                    <div className="centerParagraph">
+                                        <p style={{textAlign:"center"}}>This console app will classify handwritten numbers.</p>
+                                        <div style={{margin:"20px"}}>
+                                            <h2 style={{textAlign:"center"}}>Instructions</h2>
+                                            <p>
+                                                Download the executable below or build it yourself from 
+                                                the <a href="https://github.com/jiamingwangnet/number-classifier" target="_blank" rel="noreferrer noopener nofollow">GitHub link</a>.
+                                            </p>
+                                            <p>
+                                                Make sure the MNIST files are in the same directory as the executable.
+                                                You can download the MNIST files <a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noreferrer noopener nofollow">here</a>.
+                                            </p>
+                                            <p>
+                                                When prompted about model value paths, type '!' if you do not have one.
+                                                <br />
+                                                Press any key to stop training and test.
+                                            </p>
+                                            <p>
+                                                Test images must be a bitmap file (.BMP) and the size must be 28x28.
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+                                headerImg={numberclassifier}
+                                downloads={[
+                                    {name: "Windows x64", link:"/downloads/NumberClassifier.exe"},
+                                    {name: "Pre-trained data", link:"/downloads/save.txt"},
+                                ]}
                             />
                         }
                     />

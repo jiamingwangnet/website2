@@ -3,7 +3,7 @@ import "./index.css"
 
 interface DescProps {
     title: string;
-    children: string;
+    children: string | JSX.Element;
     center?: boolean;
 }
 

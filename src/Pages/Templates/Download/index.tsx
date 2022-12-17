@@ -14,7 +14,7 @@ interface DownloadsPageProps {
     title: string;
     headerImg: string;
     heading: string;
-    desc: string;
+    desc: string | JSX.Element;
     dark?:boolean;
     downloads: DownloadObj[];
 }
