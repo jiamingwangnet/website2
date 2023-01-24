@@ -1,3 +1,5 @@
+import KEYS from "../keys";
+
 export interface Message {
     message: string;
     date: string;
@@ -13,8 +15,7 @@ interface DataObj {
     data: object;
 }
 
-const URL: string =
-    "https://r1t82p38nc.execute-api.us-east-2.amazonaws.com/default/JmWebsiteFunction";
+const URL: string = KEYS.CHAT_LAMBDA_URL;
 
 export async function getMessages(): Promise<Message[]> {
     return new Promise<Message[]>((resolve, reject) => {
