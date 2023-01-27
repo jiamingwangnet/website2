@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require('path')
 
-const network = "192.168.1.9";
+const network = "192.168.1.18";
 const local = "127.0.0.1";
 
 const connectionSettings = {
