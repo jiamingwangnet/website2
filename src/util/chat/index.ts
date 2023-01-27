@@ -10,65 +10,64 @@ export interface Message {
     name: string;
 }
 
-interface DataObj {
-    operation: string;
-    data: object;
+export type DataType = "message" | "messageList";
+export type SocketCallback = (type: DataType, content: any) => void;
+
+export interface ResData {
+    type: DataType;
+    content: any;
 }
 
-const URL: string = KEYS.CHAT_LAMBDA_URL;
+let socket: WebSocket | undefined = undefined;
+let hasConnected = false;
 
-export async function getMessages(): Promise<Message[]> {
-    return new Promise<Message[]>((resolve, reject) => {
-        const data: DataObj = {
-            operation: "query",
-            data: {
-                id: "1",
-            },
-        };
+export function initWebSocket(onOpen: Function, onMessage: SocketCallback): void
+{
+    if(!hasConnected)
+    {
+        socket = new WebSocket(KEYS.CHAT_WEBSOCKET_URL);
 
-        const xhr = new XMLHttpRequest();
+        socket.addEventListener('open', event => {
+            onOpen();
+            hasConnected = true;
+        });
 
-        xhr.open("POST", URL, true);
+        socket.addEventListener('message', event => {
+            const data: ResData = JSON.parse(event.data);
+            onMessage(data.type, data.content);
+            console.log(event);
+        });
+    }
+    else
+    {
+        onOpen();
 
-        xhr.setRequestHeader("Content-Type", "application/json");
-
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                const res: Message[] = [];
-                const messages:Message[] = JSON.parse(xhr.responseText).data.Item.messages;
-                for(let i = 0; i < messages.length; i++)
-                {
-                    res.push(messages[i]);
-                }
-
-                resolve(res);
-            }
-        }; 
-        xhr.send(JSON.stringify(data));
-    });
+        socket?.addEventListener('message', event => {
+            const data: ResData = JSON.parse(event.data);
+            onMessage(data.type, data.content);
+            console.log(event);
+        });
+    }
 }
 
-export async function updateMessages(messages: Message[]): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
-        const data: DataObj = {
-            operation: "update",
-            data: {
-                id: "1",
-                messages: messages
-            },
-        };
+export function endConnection(): void
+{
+    socket?.close();
+}
 
-        const xhr = new XMLHttpRequest();
+export function fetchMessages(): void {
+    socket?.send(
+        JSON.stringify({
+            action:"fetchmessages"
+        })
+    )
+}
 
-        xhr.open("POST", URL, true);
-
-        xhr.setRequestHeader("Content-Type", "application/json");
-
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                resolve();
-            }
-        }; 
-        xhr.send(JSON.stringify(data));
-    });
+export function sendMessage(message: Message): void {
+    socket?.send(
+        JSON.stringify({
+            action:"sendmessage",
+            message:message
+        })
+    );
 }

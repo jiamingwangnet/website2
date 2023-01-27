@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import Message from "../../Components/Message"; 
-import { getMessages, updateMessages, Message as MsgInter } from '../../util/chat';
+import { fetchMessages, sendMessage, Message as MsgInter, initWebSocket, SocketCallback, DataType, endConnection } from '../../util/chat';
 import "./index.css";
 
 interface ChatPageProps {
@@ -17,7 +17,6 @@ class ChatPage extends React.Component<ChatPageProps, ChatPageState> {
     chatboxRef:React.RefObject<HTMLDivElement>;
     nameRef:React.RefObject<HTMLInputElement>;
     msgRef:React.RefObject<HTMLTextAreaElement>;
-    loadRate:number;
     constructor(props:ChatPageProps)
     {
         super(props);
@@ -29,17 +28,14 @@ class ChatPage extends React.Component<ChatPageProps, ChatPageState> {
 
         this.nameRef = React.createRef();
         this.msgRef = React.createRef();
-        this.loadRate = 3500;
     }
 
-    async componentDidMount(): Promise<void> {
+    componentDidMount(): void {
         window.scrollTo({
             top: 0,
             left: 0,
             behavior: "auto"
         });
-
-        await this.loadMessages();
 
         const username = window.localStorage.getItem("username");
         if(username)
@@ -48,9 +44,7 @@ class ChatPage extends React.Component<ChatPageProps, ChatPageState> {
             this.nameRef.current!.disabled = true;
         }
 
-        window.setInterval(async () => {
-            await this.loadMessages();
-        }, this.loadRate);
+        initWebSocket(fetchMessages, this.handleMessage);
     }
 
     render() { 
@@ -81,15 +75,23 @@ class ChatPage extends React.Component<ChatPageProps, ChatPageState> {
         );
     }
 
-    async loadMessages():Promise<void> {
-        const msgRaw:MsgInter[] = await getMessages();
-        if(msgRaw.length === this.state.messages.length) return;
-        this.setState({messages:msgRaw}, () => {
-            this.chatboxRef.current!.scrollTop = this.chatboxRef.current!.scrollHeight;
-        });
+    handleMessage = (type: DataType, content: any):void => {
+        if(type === "message")
+        {
+            this.setState({messages: [...this.state.messages, content]}, () => {
+                this.chatboxRef.current!.scrollTop = this.chatboxRef.current!.scrollHeight;
+            });
+        }
+        else if(type === "messageList")
+        {
+            const msgRaw:MsgInter[] = content;
+            this.setState({messages:msgRaw}, () => {
+                this.chatboxRef.current!.scrollTop = this.chatboxRef.current!.scrollHeight;
+            });
+        }
     }
 
-    sendMessage = async () =>
+    sendMessage = () =>
     {
         const name = this.nameRef.current!;
         const msg = this.msgRef.current!;
@@ -126,7 +128,7 @@ class ChatPage extends React.Component<ChatPageProps, ChatPageState> {
         msg.value = "";
         
         this.setState({messages: [...this.state.messages, res]}, () => {
-            updateMessages(this.state.messages);
+            sendMessage(res);
             this.chatboxRef.current!.scrollTop = this.chatboxRef.current!.scrollHeight;
         });
     }
