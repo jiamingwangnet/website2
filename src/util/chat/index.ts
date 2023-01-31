@@ -35,7 +35,6 @@ export function initWebSocket(onOpen: Function, onMessage: SocketCallback): void
         socket.addEventListener('message', event => {
             const data: ResData = JSON.parse(event.data);
             onMessage(data.type, data.content);
-            console.log(event);
         });
     }
     else
@@ -45,7 +44,6 @@ export function initWebSocket(onOpen: Function, onMessage: SocketCallback): void
         socket?.addEventListener('message', event => {
             const data: ResData = JSON.parse(event.data);
             onMessage(data.type, data.content);
-            console.log(event);
         });
     }
 }

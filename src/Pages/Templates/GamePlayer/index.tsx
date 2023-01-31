@@ -101,7 +101,6 @@ class GamePlayer extends React.Component<GamePlayerProps, GamePlayerState> {
     }
 
     toggleFullscreen = () => {
-        console.log("asfafsd");
         if (this.state.fullscreen) {
             this.iframeRef.current!.style.width = "75%";
             this.iframeRef.current!.style.height = "65%";
