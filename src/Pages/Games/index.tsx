@@ -17,6 +17,7 @@ import bearEscapebg from "../../assets/images/game_thumbnails/bearEscape.png";
 import cubeSliderbg from "../../assets/images/game_thumbnails/slider.png";
 import jumpbg from "../../assets/images/game_thumbnails/jump.png";
 import lightsOutbg from "../../assets/images/game_thumbnails/lightsOut.png";
+import tictactoebg from "../../assets/images/game_thumbnails/tictactoe.png";
 
 interface GamesPageProps { }
 
@@ -51,6 +52,19 @@ class GamesPage extends React.Component<GamesPageProps, GamesPageState> {
                 </Desc>
 
                 <ProjectDisplay columns={3} seperator>
+                    <ProjElement
+                        image={tictactoebg}
+                        heading="Tic Tac Toe"
+                        tags={["Finished", "Online"]}
+                        popupTitle="Tic Tac Toe"
+                        popupBody={
+                            <>
+                                <p>You know this game.</p>
+                            </>
+                        }
+                        popupBackground={tictactoebg}
+                        link="/games/tictactoe"
+                    />
                     <ProjElement
                         image={lightsOutbg}
                         heading="Lights Out"

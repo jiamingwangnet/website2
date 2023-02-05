@@ -218,6 +218,17 @@ function App() {
                             />
                         }
                     />
+                    <Route
+                        path="/games/tictactoe"
+                        element={
+                            <GamePlayer
+                                title="Tic Tac Toe"
+                                gameLink="/html/games/tictactoe/index.html"
+                                heading="Tic Tac Toe"
+                                desc='X and O game.'
+                            />
+                        }
+                    />
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>
                 <Footer />
